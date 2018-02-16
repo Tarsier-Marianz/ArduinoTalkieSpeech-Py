@@ -1,7 +1,15 @@
 __author__ = 'TARSIER'
 
+import sys
 import binascii
 import os
+
+is_version3 = False
+if (sys.version_info > (3, 0)):
+    # Python 3 code in this block
+    is_version3 = True
+
+     
 current_dir = os.getcwd()
 wav_file = "message.wav"
 fname= os.path.join(current_dir, wav_file)
@@ -14,10 +22,14 @@ try:
     while byte != "":
         # Do stuff with byte.
         byte = f.read(1)
-        #code = code + "0x"+(binascii.hexlify(byte)) +","
-        code = "%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper())
-        print ("%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper()))
-        #print "0x"+(binascii.hexlify(byte))+" ,",
+        if is_version3:
+            code = "%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper())
+            #print ("%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper()))
+
+        else:
+            #print "0x"+(binascii.hexlify(byte))+" ,",
+            code = code + "0x"+(binascii.hexlify(byte)) +","
+                
 except Exception as ex:
     print (ex)
 
