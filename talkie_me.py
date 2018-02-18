@@ -23,10 +23,10 @@ try:
         byte = f.read(1)
         if is_version3:
             #print ("%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper()))
-            code = "%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper())
+            code = ("%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper()))
         else:
-            #print "0x"+(binascii.hexlify(byte))+" ,",
-            code = code + "0x"+(binascii.hexlify(byte)) +","
+            #print ("%s0x%s," % (code,(binascii.hexlify(byte))))
+            code = ("%s0x%s," % (code,(binascii.hexlify(byte))))
                 
 except Exception as ex:
     print (ex)
