@@ -1,8 +1,8 @@
 # ArduinoTalkieSpeech
 
-[Python](https://www.python.org/) script that convert audio file (WAV) to Talkie (speech synthesis for arduino) compatible data.
+[Python](https://www.python.org/) script that convert audio file (**WAV**) to Talkie (speech synthesis for arduino) compatible data.
 
-Talkie is speech library for [Arduino](https://www.arduino.cc/) , and you can found it here [Talkie Github](https://github.com/going-digital/Talkie)
+Talkie is speech library for [Arduino](https://www.arduino.cc/) , and it can be found here [Talkie Github](https://github.com/going-digital/Talkie)
 
 #### Sample Output
 
