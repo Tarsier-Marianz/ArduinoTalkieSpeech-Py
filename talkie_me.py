@@ -13,28 +13,31 @@ current_dir = os.getcwd()   #get current directory
 wav_file = "message.wav"
 variable_name = wav_file[:-4].upper()
 fname= os.path.join(current_dir, wav_file)
-# start of code variable declaration based from audio filename
-code ="const uint8_t sp"+ variable_name+"[] PROGMEM ={"
-try:
-    with open(fname, "rb") as f:
-        while True:
-            byte = f.read(1)
-            if not byte:
-                break
-            if is_version3:
-                #print ("%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper()))
-                code = ("%s0x%s," % (
-                                code, (binascii.hexlify(byte)).decode("ascii").upper()))
-            else:
-                #print ("%s0x%s," % (code,(binascii.hexlify(byte))))
-                code = ("%s0x%s," %
-                                    (code, (binascii.hexlify(byte))))
-except Exception as ex:
-    print (ex)
-finally:
-    f.close()
-    code = code[:-1] #remove last chars (comma)
-    code = code +"};"
-    print (code)
-    print
-    print("voice.say(sp"+variable_name+");")
+if os.path.isfile(fname):    
+    # start of code variable declaration based from audio filename
+    code ="const uint8_t sp"+ variable_name+"[] PROGMEM ={"
+    try:
+        with open(fname, "rb") as f:
+            while True:
+                byte = f.read(1)
+                if not byte:
+                    break
+                if is_version3:
+                    #print ("%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper()))
+                    code = ("%s0x%s," % (
+                                    code, (binascii.hexlify(byte)).decode("ascii").upper()))
+                else:
+                    #print ("%s0x%s," % (code,(binascii.hexlify(byte))))
+                    code = ("%s0x%s," %
+                                        (code, (binascii.hexlify(byte))))
+    except Exception as ex:
+        print (ex)
+    finally:
+        f.close()
+        code = code[:-1] #remove last chars (comma)
+        code = code +"};"
+        print (code)
+        print
+        print("voice.say(sp"+variable_name+");")
+else:
+    print ("%s file not found" % wav_file)
