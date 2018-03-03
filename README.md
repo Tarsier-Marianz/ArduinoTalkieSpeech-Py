@@ -26,6 +26,9 @@ This is the output of **ALERT** voice.
 
     voice.say(spALERT);
 	
+
+> **Note**: the bigger file size of audio file, the **longer** it takes to execute conversion.
+
 ### Thanks
 
 [Talkie](https://github.com/going-digital/Talkie)
