@@ -8,6 +8,7 @@ Talkie is speech library for [Arduino](https://www.arduino.cc/) , and it can be 
 
 This is the output of **ALERT** voice.
 
+```C++
 
     const uint8_t spALERT[]  PROGMEM = {
 		0xA5, 0xCF, 0xC6, 0xAB, 0x55, 0x5B, 0xAF, 0x39,
@@ -25,7 +26,7 @@ This is the output of **ALERT** voice.
     };
 
     voice.say(spALERT);
-	
+```
 
 > **Note**: the bigger file size of audio file, the **longer** it takes to execute conversion.
 
