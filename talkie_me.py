@@ -15,7 +15,7 @@ variable_name = wav_file[:-4].upper()
 fname= os.path.join(current_dir, wav_file)
 if os.path.isfile(fname):    
     # start of code variable declaration based from audio filename
-    code ="const uint8_t sp"+ variable_name+"[] PROGMEM ={"
+    code ="const uint8_t sp"+ variable_name+"[] PROGMEM ={\n"
     try:
         with open(fname, "rb") as f:
             while True:
@@ -33,9 +33,8 @@ if os.path.isfile(fname):
     except Exception as ex:
         print (ex)
     finally:
-        f.close()
         code = code[:-1] #remove last chars (comma)
-        code = code +"};"
+        code = code +"\n};"
         print (code)
         print
         print("voice.say(sp"+variable_name+");")
