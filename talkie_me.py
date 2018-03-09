@@ -4,6 +4,9 @@ import sys
 import binascii
 import os
 
+def non_alphanumeric(string):
+    return ''.join(ch for ch in string if ch.isalnum())
+    
 is_version3 = False
 if (sys.version_info > (3, 0)):
     # Python 3 code in this block
@@ -11,12 +14,17 @@ if (sys.version_info > (3, 0)):
     
 current_dir = os.getcwd()   #get current directory
 wav_file = "message.wav" #set as default audio file
-if len(sys.argv) >0:
+if len(sys.argv) > 1:
     #cmd_args = str(sys.argv)
-    wav_file = str(sys.argv[0])
-
-if (os.path.splitext(wav_file)[1]).strip() == '.wav':
-    variable_name = wav_file[:-4].upper()
+    #print (cmd_args)
+    if sys.argv[1].strip():
+        wav_file = str(sys.argv[1])
+        print ("sdsdads %s " % wav_file)
+#print (wav_file)
+extension = os.path.splitext(wav_file)[1].strip()
+#print(extension)
+if extension == '.wav':
+    variable_name = non_alphanumeric(wav_file[:-4]).upper()
     fname= os.path.join(current_dir, wav_file)
     if os.path.isfile(fname):    
         # start of code variable declaration based from audio filename
