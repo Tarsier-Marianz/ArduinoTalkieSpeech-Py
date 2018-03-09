@@ -23,13 +23,13 @@ if os.path.isfile(fname):
                 if not byte:
                     break
                 if is_version3:
-                    #print ("%s0x%s," % ( code,(binascii.hexlify(byte)).decode("ascii").upper()))
-                    code = ("%s0x%s," % (
-                                    code, (binascii.hexlify(byte)).decode("ascii").upper()))
+                    #print ("%s0x%s, " % ( code,(binascii.hexlify(byte)).decode("ascii").upper()))
+                    code = ("%s0x%s, " % (
+                                    code, (binascii.hexlify(byte)).decode("ascii").strip().upper()))
                 else:
-                    #print ("%s0x%s," % (code,(binascii.hexlify(byte))))
-                    code = ("%s0x%s," %
-                                        (code, (binascii.hexlify(byte))))
+                    #print ("%s0x%s, " % (code,(binascii.hexlify(byte))))
+                    code = ("%s0x%s, " %
+                                        (code, (binascii.hexlify(byte)).strip().upper()))
     except Exception as ex:
         print (ex)
     finally:
