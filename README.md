@@ -4,6 +4,10 @@
 
 Talkie is speech library for [Arduino](https://www.arduino.cc/) , and it can be found here [Talkie Github](https://github.com/going-digital/Talkie)
 
+#### Sample Usage
+
+	 $ python talkie_me.py alert.wav
+
 #### Sample Output
 
 This is the output of **ALERT** voice.
