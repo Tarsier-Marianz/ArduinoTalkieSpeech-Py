@@ -19,7 +19,7 @@ if len(sys.argv) > 1:
     #print (cmd_args)
     if sys.argv[1].strip():
         wav_file = str(sys.argv[1])
-        print ("sdsdads %s " % wav_file)
+        
 #print (wav_file)
 extension = os.path.splitext(wav_file)[1].strip()
 #print(extension)
