@@ -12,7 +12,7 @@ if (sys.version_info > (3, 0)):
     # Python 3 code in this block
     is_version3 = True
     
-current_dir = os.getcwd()   #get current directory
+current_dir = os.getcwd()   #get current working directory
 wav_file = "message.wav" #set as default audio file
 if len(sys.argv) > 1:
     #cmd_args = str(sys.argv)
